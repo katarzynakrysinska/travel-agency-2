@@ -3,11 +3,21 @@ import PropTypes from 'prop-types';
 //import styles from './OrderForm.module.scss';
 import { Row, Col } from 'react-flexbox-grid';
 import OrderSummary from '../OrderSummary/OrderSummary';
+import OrderOption from '../OrderOption/OrderOption';
+import pricing from '../../../data/pricing.json';
 
-const OrderForm = (cost, options) => (
+const OrderForm = (cost, options, setOrderOption) => (
   <Row>
+    {pricing.map(option => (
+      <Col md={4} key={option.id}>
+        <OrderOption {...option}/>
+      </Col>
+    ))}
     <Col xs={12}>
-      <OrderSummary cost={cost} options={options} />
+      <OrderSummary cost={cost} options={options}
+      currentValue={options[options.id]}
+      setOrderOption={setOrderOption}
+      />
     </Col>
   </Row>
 );
@@ -18,3 +28,4 @@ OrderForm.propTypes = {
 };
 
 export default OrderForm;
+
