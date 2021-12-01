@@ -5,12 +5,11 @@ import { calculateTotal } from '../../../utils/calculateTotal';
 import { formatPrice } from '../../../utils/formatPrice';
 
 
-const OrderSummary = ({cost, options}) =>(
-  <h2 className={styles.component}>Total:  
-    <strong>{formatPrice(calculateTotal(cost, options))}</strong>
-  </h2>
-
-);
+const OrderSummary = ({cost, options}) => (
+    <h2 className={styles.component}>
+      Total: <strong>{formatPrice(calculateTotal(cost, options))}</strong>
+    </h2>
+  );
 
 
 OrderSummary.propTypes = {
