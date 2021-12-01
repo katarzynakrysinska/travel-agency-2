@@ -1,18 +1,20 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 //import styles from './OrderForm.module.scss';
-import {Row, Col} from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 import OrderSummary from '../OrderSummary/OrderSummary';
 
-const OrderForm = () => (
+const OrderForm = (cost, options) => (
   <Row>
     <Col xs={12}>
-      <OrderSummary />
+      <OrderSummary cost={cost} options={options} />
     </Col>
   </Row>
 );
 
-//List.propTypes = {
-//};
+OrderForm.propTypes = {
+  options: PropTypes.object,
+  cost: PropTypes.string,
+};
 
 export default OrderForm;
