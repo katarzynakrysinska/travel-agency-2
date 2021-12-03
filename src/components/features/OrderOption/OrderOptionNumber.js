@@ -15,6 +15,7 @@ const OrderOptionNumber = (limits, currentValue, setOptionValue, price) => (
     >
     </input>
     {formatPrice(price)}
+    
   </div>
 );
 
