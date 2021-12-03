@@ -28,4 +28,3 @@ OrderForm.propTypes = {
 };
 
 export default OrderForm;
-
