@@ -78,7 +78,7 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_REGION:
       return {
         ...statePart,
-        regions: statePart.regions.filter(region => region !== action.payload),
+        regions: [...statePart.regions.filter(region => region !== action.payload)],
       };
     // TODO - handle other action types
     default:

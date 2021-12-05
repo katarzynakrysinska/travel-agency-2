@@ -3,6 +3,7 @@
 export const getAllTrips = ({trips}) => trips;
 
 export const getFilteredTrips = ({trips, filters, countries}) => {
+  console.log('countries', countries)
   let output = trips;
 
   // filter by search phrase

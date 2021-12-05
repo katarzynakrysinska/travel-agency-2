@@ -44,7 +44,7 @@ class TripListOptions extends React.Component {
   }
 
   render(){
-    const {tags, filters, region} = this.props;
+    const {tags, filters, regions} = this.props;
     return (
       <div className={styles.component}>
         <Row around="lg">
@@ -89,7 +89,7 @@ class TripListOptions extends React.Component {
               <details>
                 <summary className={styles.toggle}>Filter by regions</summary>
                 <div className={styles.dropdown}>
-                  {Object.keys(region).map(region=> (
+                  {Object.keys(regions).map(region=> (
                     <label key={region} className={styles.option}>
                       <input type='checkbox' checked={filters.regions.indexOf(region) > -1} onChange={event => this.handleRegions(region, event.currentTarget.checked)} />
                       {region}
@@ -107,8 +107,14 @@ class TripListOptions extends React.Component {
 
 TripListOptions.propTypes = {
   tags: PropTypes.object,
+  regions: PropTypes.object,
   filters: PropTypes.object,
   changeSearchPhrase: PropTypes.func,
+  changeDuration: PropTypes.func,
+  addTag: PropTypes.func,
+  removeTag: PropTypes.func,
+  addRegion: PropTypes.func,
+  removeRegion: PropTypes.func,
 };
 
 export default TripListOptions;
