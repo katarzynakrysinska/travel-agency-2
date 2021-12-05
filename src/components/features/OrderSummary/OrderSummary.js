@@ -7,7 +7,7 @@ import HTMLParser from 'react-html-parser';
   
 const OrderSummary = ({cost, options}) => (
     <div className={styles.component}>
-      <div className={styles.input}>Trips START:<strong>{HTMLParser(options.startDate)}</strong></div>
+      <div className={styles.input}>Trips START:<strong>{HTMLParser(options.myDate)}</strong></div>
       <h2>Total: <strong>{formatPrice(calculateTotal(cost, options))}</strong></h2>
     </div>
   );
