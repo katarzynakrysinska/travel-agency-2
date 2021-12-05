@@ -3,11 +3,13 @@ import styles from './OrderSummary.module.scss';
 import PropTypes from 'prop-types';
 import { calculateTotal } from '../../../utils/calculateTotal';
 import { formatPrice } from '../../../utils/formatPrice';
-
+import HTMLParser from 'react-html-parser';
+  
 const OrderSummary = ({cost, options}) => (
-    <h2 className={styles.component}>
-      Total: <strong>{formatPrice(calculateTotal(cost, options))}</strong>
-    </h2>
+    <div className={styles.component}>
+      <div className={styles.input}>Trips START:<strong>{HTMLParser(options.startDate)}</strong></div>
+      <h2>Total: <strong>{formatPrice(calculateTotal(cost, options))}</strong></h2>
+    </div>
   );
 
 OrderSummary.propTypes = {
