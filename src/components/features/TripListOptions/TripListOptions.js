@@ -17,6 +17,18 @@ class TripListOptions extends React.Component {
     }
   }
 
+  handleRegions(region, checked){
+    if(checked) {
+      console.log('Adding region', region);
+      // TODO - use action dispatcher from props
+      this.props.addRegion(region);
+    } else {
+      console.log('Removing region', region);
+      // TODO - use action dispatcher from props
+      this.props.removeRegion(region);
+    }
+  }
+
   handleDuration(type, value){
     console.log('Changing duration', type, value);
     // TODO - use action dispatcher from props
@@ -32,7 +44,7 @@ class TripListOptions extends React.Component {
   }
 
   render(){
-    const {tags, filters} = this.props;
+    const {tags, filters, region} = this.props;
     return (
       <div className={styles.component}>
         <Row around="lg">
@@ -64,6 +76,23 @@ class TripListOptions extends React.Component {
                     <label key={tag} className={styles.option}>
                       <input type='checkbox' checked={filters.tags.indexOf(tag) > -1} onChange={event => this.handleTags(tag, event.currentTarget.checked)} />
                       {tag}
+                    </label>
+                  ))}
+                </div>
+              </details>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={3}>
+            <div className={styles.filter}>
+              <details>
+                <summary className={styles.toggle}>Filter by regions</summary>
+                <div className={styles.dropdown}>
+                  {Object.keys(region).map(region=> (
+                    <label key={region} className={styles.option}>
+                      <input type='checkbox' checked={filters.regions.indexOf(region) > -1} onChange={event => this.handleRegions(region, event.currentTarget.checked)} />
+                      {region}
                     </label>
                   ))}
                 </div>

@@ -2,7 +2,7 @@
 
 export const getAllTrips = ({trips}) => trips;
 
-export const getFilteredTrips = ({trips, filters}) => {
+export const getFilteredTrips = ({trips, filters, countries}) => {
   let output = trips;
 
   // filter by search phrase
@@ -19,6 +19,13 @@ export const getFilteredTrips = ({trips, filters}) => {
   // TODO - filter by tags
   if(filters.tags){
     output = output.filter(trip => filters.tags.every(tag => trip.tags.includes(tag)));
+  }
+
+  // filter by regions
+  if (filters.regions) {
+    filters.regions.forEach(region => {
+      output = output.filter(trip => countries[trip.country.code].region === region);
+    });
   }
 
   // TODO - sort by cost descending (most expensive goes first)
