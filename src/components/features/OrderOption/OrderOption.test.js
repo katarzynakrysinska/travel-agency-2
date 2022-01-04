@@ -67,7 +67,7 @@ for(let type in optionTypes){
     /* test setup */
 
     let component;
-    //let subcomponent;
+    let subcomponent;
     //let renderedSubcomponent;
 
     beforeEach(() => {
@@ -78,13 +78,14 @@ for(let type in optionTypes){
           {...mockPropsForType[type]}
         />,
       );
-      //subcomponent = component.find(optionTypes[type]);
+      subcomponent = component.find(optionTypes[type]);
       //renderedSubcomponent = subcomponent.dive();
     });
 
     /* common tests */
     it('passes dummy test', () => {
       console.log(component.debug());
+      console.log(subcomponent.debug());
       expect(1).toBe(1);
       
     });
