@@ -59,7 +59,7 @@ const mockPropsForType = {
   date: {},
 };
 
-//const testValue = mockProps.values[1].id;
+const testValue = mockProps.values[1].id;
 //const testValueNumber = 3;
 
 for(let type in optionTypes){
@@ -106,6 +106,11 @@ for(let type in optionTypes){
           expect(options.length).toBe(mockProps.values.length);
           expect(options.at(0).prop('value')).toBe(mockProps.values[0].id);
           expect(options.at(1).prop('value')).toBe(mockProps.values[1].id);
+        });
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValue}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
         });
         break;
       }
