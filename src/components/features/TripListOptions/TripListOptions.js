@@ -33,11 +33,11 @@ class TripListOptions extends React.Component {
     console.log('Changing duration', type, value);
     // TODO - use action dispatcher from props
     if(type === 'from'){
-    this.props.changeDurationFrom(value);
-  } else {
-    this.props.changeDurationTo(value);
+      this.props.changeDurationFrom(value);
+    } else {
+      this.props.changeDurationTo(value);
+    }
   }
-}
 
   handleSearch(phrase){
     this.props.changeSearchPhrase(phrase);
@@ -111,10 +111,12 @@ TripListOptions.propTypes = {
   filters: PropTypes.object,
   changeSearchPhrase: PropTypes.func,
   changeDuration: PropTypes.func,
-  addTag: PropTypes.func,
-  removeTag: PropTypes.func,
+  addTags: PropTypes.func,
+  removeTags: PropTypes.func,
   addRegion: PropTypes.func,
   removeRegion: PropTypes.func,
+  changeDurationFrom: PropTypes.func,
+  changeDurationTo: PropTypes.func,
 };
 
 export default TripListOptions;

@@ -12,8 +12,8 @@ const OrderForm = (props) => (
     {pricing.map(option => (
       <Col md={4} key={option.id}>
         <OrderOption {...option}
-        currentValue={props.options[option.id]}
-        setOrderOption={props.setOrderOption}
+          currentValue={props.options[option.id]}
+          setOrderOption={props.setOrderOption}
         />
       </Col>
     ))}
@@ -29,6 +29,7 @@ const OrderForm = (props) => (
 OrderForm.propTypes = {
   options: PropTypes.object,
   cost: PropTypes.string,
+  setOrderOption: PropTypes.node,
 };
 
 export default OrderForm;

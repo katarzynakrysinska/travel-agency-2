@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   changeDurationFrom: duration => dispatch(changeDurationFrom(duration)),
   changeDurationTo: duration => dispatch(changeDurationTo(duration)),
   addRegion: region => dispatch(addRegion(region)),
-  removeRegion: region => dispatch(removeRegion(region))
+  removeRegion: region => dispatch(removeRegion(region)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TripListOptions);

@@ -24,12 +24,12 @@ const OrderOption = ({id, setOrderOption, name, type, ...otherProps}) => {
   } else {
     return (
       <div className={styles.component}>
-      <h3 className={styles.title}>{name}</h3>
-      <OptionComponent 
-      setOptionValue={value => setOrderOption({[id]: value})}
-      {...otherProps} 
-      />
-    </div>
+        <h3 className={styles.title}>{name}</h3>
+        <OptionComponent 
+          setOptionValue={value => setOrderOption({[id]: value})}
+          {...otherProps} 
+        />
+      </div>
     );
   }
 };
