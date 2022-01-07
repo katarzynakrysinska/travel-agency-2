@@ -36,8 +36,4 @@ class OrderOptionDate extends React.Component {
   }
 }
 
-//let newStartDate = '2021-12-16T21:…000Z'
-//let shortDate = newStartDate.slice(0, 10);
-//console.log(shortDate);
-
 export default OrderOptionDate;

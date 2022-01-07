@@ -114,6 +114,18 @@ for(let type in optionTypes){
         });
         break;
       }
+      case 'icons': {
+        it('contains div with class icon', () => {
+          const divTest = renderedSubcomponent.find('.icon');
+          expect(divTest.length).toBe(mockProps.values.length);
+        });
+        it('should run setOrderOption function on click', () => {
+          renderedSubcomponent.find('.icon').at(1).simulate('click');
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+        });
+        break;
+      }
     }
   });
 }

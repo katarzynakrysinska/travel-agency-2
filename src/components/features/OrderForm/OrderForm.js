@@ -18,7 +18,7 @@ const OrderForm = (props) => (
       </Col>
     ))}
     <Col xs={12}>
-      <OrderSummary cost={props.cost} options={props.options}
+      <OrderSummary cost={props.cost} options={props.options} days={props.days}
       />
       <Button>Order the trip!</Button>
     </Col>
@@ -30,6 +30,7 @@ OrderForm.propTypes = {
   options: PropTypes.object,
   cost: PropTypes.string,
   setOrderOption: PropTypes.node,
+  days: PropTypes.number,
 };
 
 export default OrderForm;
