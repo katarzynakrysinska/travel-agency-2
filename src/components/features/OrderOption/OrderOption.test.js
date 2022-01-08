@@ -126,6 +126,30 @@ for(let type in optionTypes){
         });
         break;
       }
+      case 'checkboxes': {
+        it('contains div with class checkboxes', () => {
+          const divCheck = renderedSubcomponent.find('.checkboxes');
+          expect(divCheck.length).toBe(1);
+        });
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find(`input[value='${testValue}']`).simulate('change', {currentTarget: {checked: true}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: [mockProps.currentValue, testValue] });
+        });
+        break;
+      }
+      case 'number': {
+        it('contains div with number class and input', () => {
+          const numCheck = renderedSubcomponent.find('.number');
+          expect(numCheck.length).toBe(1);
+        });
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find(`input[value='${testValue}']`).simulate('change', {currentTarget: {checked: true}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: [mockProps.currentValue, testValue] });
+        });
+        break;
+      }
     }
   });
 }
