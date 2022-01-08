@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import styles from './OrderOption.module.scss';
 import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
-
 
 class OrderOptionDate extends React.Component {
   static propTypes = {
@@ -20,9 +18,9 @@ class OrderOptionDate extends React.Component {
       startDate: date,
     });
     
-    const myDate = moment(date, 'yyyy-MM-dd').toDate();
-    console.log('freshnewDate', myDate);
-    this.props.setOptionValue(myDate);
+    //const myDate = moment(date, 'yyyy-MM-dd').toDate();
+    //console.log('freshnewDate', myDate);
+    this.props.setOptionValue(date);
   };
 
   render() {
