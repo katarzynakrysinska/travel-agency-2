@@ -1,20 +1,23 @@
 import React from 'react';
 import styles from './OrderSummary.module.scss';
-import PropTypes from 'prop-types';
-import { calculateTotal } from '../../../utils/calculateTotal';
-import { formatPrice } from '../../../utils/formatPrice';
-import { dateToStr, addDays } from '../../../utils/date';
-  
-const OrderSummary = ({cost, options}) => (
+import {calculateTotal} from '../../../utils/calculateTotal';
+import {formatPrice} from '../../../utils/formatPrice';
+import {addDays} from '../../../utils/date';
+import propTypes from 'prop-types';
+import HTMLParser from 'react-html-parser';
+
+const OrderSummary = ({tripCost, options, days}) => (
   <div className={styles.component}>
-    <h2>Total: <strong>{formatPrice(calculateTotal(cost, options))}</strong></h2>
-    <span>{dateToStr(options.startDate)} - {dateToStr(addDays(options.startDate + options.days))}</span>
+    <div className={styles.input}>Your Trip starts on:<strong>{HTMLParser(options.startDate)}</strong></div>
+    <div className={styles.input}>Your Trip finishes on:<strong>{HTMLParser(addDays(options.startDate,days))}</strong></div>
+    <h2 className={styles.input}>Total:<strong>{formatPrice(calculateTotal(tripCost, options))}</strong></h2>
   </div>
 );
 
 OrderSummary.propTypes = {
-  cost: PropTypes.string,
-  options: PropTypes.object,
+  tripCost: propTypes.string,
+  options: propTypes.object,
+  days: propTypes.number,
 };
 
 export default OrderSummary;

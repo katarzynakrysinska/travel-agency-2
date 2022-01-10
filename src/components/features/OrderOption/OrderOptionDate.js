@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import styles from './OrderOption.module.scss';
 import 'react-datepicker/dist/react-datepicker.css';
+import {addDays} from '../../../utils/date';
 
 class OrderOptionDate extends React.Component {
   static propTypes = {
     setOptionValue: PropTypes.func,
+    currentValue: PropTypes.date,
   };
   
   state = {
@@ -18,18 +20,21 @@ class OrderOptionDate extends React.Component {
       startDate: date,
     });
     
-    //const myDate = moment(date, 'yyyy-MM-dd').toDate();
-    //console.log('freshnewDate', myDate);
     this.props.setOptionValue(date);
   };
 
   render() {
+    const { currentValue } = this.props;
     return (
-      <DatePicker className={styles.input}
-        selected={this.state.startDate}
-        onChange={this.handleChange}
-        dateFormat='yyyy-MM-dd'
-      />
+      <div>
+        <DatePicker className={styles.input}
+          selected={currentValue}
+          onChange={this.handleChange}
+          dateFormat='yyyy-MM-dd'
+          minDate={addDays(new Date(), 10)}
+        />
+        {`(Please select a date min. 10 days from today)`}
+      </div>
     );
   }
 }
