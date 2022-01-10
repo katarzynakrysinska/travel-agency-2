@@ -8,9 +8,9 @@ import pricing from '../../../data/pricing.json';
 import Button from '../../common/Button/Button';
 import { formatPrice } from '../../../utils/formatPrice';
 import { calculateTotal } from '../../../utils/calculateTotal';
-import settings from '../../../data/settings';
+import settings from '../../../data/settings.js';
 
-const sendOrder = (options,tripCost) => {
+const sendOrder = (options, tripCost) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
   const payload = {
@@ -21,7 +21,7 @@ const sendOrder = (options,tripCost) => {
   const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
   const fetchOptions = {
-    cache:'no-cache',
+    cache: 'no-cache',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -33,12 +33,11 @@ const sendOrder = (options,tripCost) => {
     .then(function(response){
       return response.json();
     }).then(function(parsedResponse){
-      console.log('parsedResponde', parsedResponse);
+      console.log('parsedResponse', parsedResponse);
     });
 };
 
-
-const OrderForm = (props) => (
+const OrderForm = (props, options, tripCost) => (
   <Row>
     {pricing.map(option => (
       <Col md={4} key={option.id}>
@@ -51,9 +50,9 @@ const OrderForm = (props) => (
     <Col xs={12}>
       <OrderSummary cost={props.cost} options={props.options} days={props.days}
       />
-      <Button onClick={() => sendOrder(options, tripCost)}>Order the trip!</Button>
+      <Button onClick={() => sendOrder(options, tripCost)}>Order now!</Button>
     </Col>
-    
+
   </Row>
 );
 

@@ -1,5 +1,5 @@
 export const parseOptionPrice = price => {
-  if (typeof (price) === 'number') {
+  if (typeof (price) == 'number') {
     return { type: 'number', value: price };
   }
   else {
