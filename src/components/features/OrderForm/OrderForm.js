@@ -10,6 +10,7 @@ import { formatPrice } from '../../../utils/formatPrice';
 import { calculateTotal } from '../../../utils/calculateTotal';
 import settings from '../../../data/settings.js';
 
+
 const sendOrder = (options, tripCost) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
@@ -36,6 +37,7 @@ const sendOrder = (options, tripCost) => {
       console.log('parsedResponse', parsedResponse);
     });
 };
+
 
 const OrderForm = (props, options, tripCost) => (
   <Row>
