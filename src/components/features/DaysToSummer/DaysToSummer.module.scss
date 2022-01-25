@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.daysToSummer {
+  z-index: 999;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  color: $color-light;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+} 
